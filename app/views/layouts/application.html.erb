@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Workspace</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Simple Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+      	<h1><%= yield :heading %></h1>
+      	<%=
+      	  link_to 'New Note', new_note_path,
+      	  class: 'ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-plus'
+      	%>
+      	<%=
+      	  link_to 'Anonymous', sessions_new_path,
+      	  class: 'ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-user'
+      	%>
+      </div>
 
-<%= yield %>
-
-</body>
+      <%= yield %>
+    </div>
+  </body>
 </html>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'notes#index'
+
   get 'sessions/new'
 
   resources :notes
