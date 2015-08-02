@@ -1,11 +1,9 @@
 <%=
-    login_button_classes = 'ui-btn ui-corner-all ui-btn-inline ui-mini'\
-        ' footer-button-left ui-btn-icon-left ui-icon-user'
-
     if logged_in?
         link_to(current_user.username, user_path(current_user),
-            class: login_button_classes)
+            class: SessionsHelper::LOGIN_BUTTON_CLASSES)
     else
-        link_to('Login', login_path, class: login_button_classes)
+        link_to('Login', login_path,
+            class: SessionsHelper::LOGIN_BUTTON_CLASSES)
     end
 %>

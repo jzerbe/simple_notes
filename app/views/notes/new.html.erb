@@ -1,5 +1,18 @@
-<h1>New Note</h1>
+<% content_for :heading do %>
+    New Note
+<% end %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', notes_path %>
+<div role="main" class="ui-content">
+    <div class="ui-corner-all custom-corners">
+        <div class="ui-body ui-body-a">
+            <%=
+            if logged_in?  # stave off perception of lost data
+                render 'form'
+            else
+                link_to('Login to create notes', login_path,
+                    class: SessionsHelper::LOGIN_BUTTON_CLASSES)
+            end
+            %>
+        </div>
+    </div>
+</div>
