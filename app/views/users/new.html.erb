@@ -1,5 +1,11 @@
-<h1>New User</h1>
+<% content_for :heading do %>
+    New User
+<% end %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', users_path %>
+<div role="main" class="ui-content">
+    <div class="ui-corner-all custom-corners">
+        <div class="ui-body ui-body-a">
+            <%= render 'form' %>
+        </div>
+    </div>
+</div>
