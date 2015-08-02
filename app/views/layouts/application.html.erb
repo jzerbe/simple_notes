@@ -9,16 +9,14 @@
   </head>
   <body>
     <div data-role="page">
+
       <div data-role="header">
       	<h1><%= yield :heading %></h1>
       	<%=
       	  link_to 'New Note', new_note_path,
       	  class: 'ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-plus'
       	%>
-      	<%=
-      	  link_to 'Anonymous', login_path,
-      	  class: 'ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-user'
-      	%>
+      	<%= render 'widgets/username_login' %>
       </div>
 
       <%= yield %>
