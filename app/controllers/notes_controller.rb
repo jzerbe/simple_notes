@@ -1,10 +1,11 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  # TODO enforce user perms ... here?
 
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+    @notes = Note.all.order('created_at DESC')
   end
 
   # GET /notes/1
@@ -25,6 +26,11 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(note_params)
+
+    # should probably just always overwrite
+    if current_user and current_user.id  # server-side session if available
+      @note.user_id = current_user.id  # more of a last edited by user
+    end
 
     respond_to do |format|
       if @note.save
