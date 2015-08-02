@@ -5,6 +5,7 @@ A simple rails app for storing arbitrary user text content.
 * update all gems: <tt>bundle update</tt>
 * run all tests: <tt>bundle exec rake test</tt>
 * run all migrations: <tt>bundle exec rake db:migrate</tt>
+* run local server: <tt>rails server -b 0.0.0.0 -p 8080</tt>
 
 
-display with: <tt>rake doc:app</tt>
+display this with: <tt>rake doc:app</tt>
